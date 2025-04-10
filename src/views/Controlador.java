@@ -16,6 +16,7 @@ public class Controlador implements ActionListener {
      IVL vl = new VistaListado(null,true);
      IVA  va = new VistaAnimales(null,true);
      IVC vc = new ListarAnimalesView();
+        private boolean controladorAsignado = false;
      
     public static TipoAlimentacion[] getTiposAlimentacion(){
         return  TipoAlimentacion.values();
@@ -79,7 +80,11 @@ public class Controlador implements ActionListener {
             va.llenarComboBoxSector(Persistencia.getSectores());
             va.llenarComboBoxPais(Persistencia.getPaises());
             va.llenarComboBoxEspecie(Persistencia.getEspecies());
-            va.setControlador(this);
+            
+          if(!controladorAsignado){
+           va.setControlador(this);
+           controladorAsignado = true;
+         }
             va.ejecutar(); 
         }
         
