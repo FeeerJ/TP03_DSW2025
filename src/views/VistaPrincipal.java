@@ -59,7 +59,12 @@ public class VistaPrincipal extends javax.swing.JFrame implements IVP {
         jMenuItem2.setText("Agregar Animal");
         jMenu3.add(jMenuItem2);
 
-        jMenuItem3.setText("jMenuItem3");
+        jMenuItem3.setText("Calculo Comida");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
         jMenu3.add(jMenuItem3);
 
         jMenuBar2.add(jMenu3);
@@ -82,6 +87,10 @@ public class VistaPrincipal extends javax.swing.JFrame implements IVP {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     
 
