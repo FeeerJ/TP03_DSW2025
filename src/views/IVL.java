@@ -5,15 +5,15 @@
  */
 package views;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Fernando
  */
-public interface IVP {
-    public static String OP_AGREGAR = "agregar";
-    public static String OP_CALCULO = "calcular";
-    public static String OP_LISTADO = "Listar";
+public interface IVL {
+    
+    public void ejecutar();
     public void setControlador(Controlador control);
-     public void ejecutar();
-     
+    public void cargarAnimales(ArrayList<String[]> datos);
 }

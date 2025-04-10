@@ -23,6 +23,8 @@ public class VistaPrincipal extends javax.swing.JFrame implements IVP {
      jMenuItem2.setActionCommand(OP_AGREGAR);
      jMenuItem3.addActionListener(control);
      jMenuItem3.setActionCommand(OP_CALCULO);
+     jMenuItem4.addActionListener(control);
+     jMenuItem4.setActionCommand(OP_LISTADO);
     }
     
     public void ejecutar(){
@@ -42,6 +44,7 @@ public class VistaPrincipal extends javax.swing.JFrame implements IVP {
         jMenu3 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
 
         jMenuItem1.setText("jMenuItem1");
@@ -66,6 +69,14 @@ public class VistaPrincipal extends javax.swing.JFrame implements IVP {
             }
         });
         jMenu3.add(jMenuItem3);
+
+        jMenuItem4.setText("Listar Animales");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem4);
 
         jMenuBar2.add(jMenu3);
 
@@ -92,6 +103,10 @@ public class VistaPrincipal extends javax.swing.JFrame implements IVP {
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -104,5 +119,6 @@ public class VistaPrincipal extends javax.swing.JFrame implements IVP {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
     // End of variables declaration//GEN-END:variables
 }

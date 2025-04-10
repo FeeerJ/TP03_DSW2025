@@ -75,18 +75,17 @@ public class ListarAnimalesView extends javax.swing.JFrame implements IVC{
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Zoológico - Listar Animales");
-        setPreferredSize(new java.awt.Dimension(640, 480));
         setSize(new java.awt.Dimension(640, 480));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Especie", "Edad", "Peso (KG)", "Sector"
+                "Especie", "Edad", "Peso (KG)", "Alimentacion", "Sector"
             }
         ));
         jScrollPane1.setViewportView(jTable1);

@@ -13,7 +13,7 @@ import java.util.logging.Logger;
 
 public class Controlador implements ActionListener {
      VistaPrincipal vp = new VistaPrincipal();
-     
+     IVL vl = new VistaListado(null,true);
      IVA  va = new VistaAnimales(null,true);
      IVC vc = new ListarAnimalesView();
      
@@ -54,12 +54,16 @@ public class Controlador implements ActionListener {
             a.getEspecie().getNombre(),
             String.valueOf(a.getEdad()),
             String.valueOf(a.getPeso()),
+            String.valueOf(a.getTipoAlimentacion()),
             String.valueOf(a.getSector().getNumero())
          };
          datos.add(fila);
          }
          return datos;
       }
+      
+      
+      
       
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -77,6 +81,12 @@ public class Controlador implements ActionListener {
             va.llenarComboBoxEspecie(Persistencia.getEspecies());
             va.setControlador(this);
             va.ejecutar(); 
+        }
+        
+        if(e.getActionCommand().equals(vp.OP_LISTADO)){
+          vl.cargarAnimales(obtenerLista());
+          vl.ejecutar();
+        
         }
         
         if(e.getActionCommand().equals(va.OPC_GUARDAR)){
