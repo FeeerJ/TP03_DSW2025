@@ -21,8 +21,10 @@ public class VistaAnimales extends javax.swing.JDialog implements IVA {
 
     public void ejecutar(){
        this.setVisible(true);
+       
     }
-
+ 
+    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -78,6 +80,7 @@ public class VistaAnimales extends javax.swing.JDialog implements IVA {
         });
 
         jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CARNIVORO", "HERBIVORO" }));
+        jComboBox4.setSelectedIndex(1);
         jComboBox4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox4ActionPerformed(evt);
@@ -209,7 +212,13 @@ public class VistaAnimales extends javax.swing.JDialog implements IVA {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jComboBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox4ActionPerformed
-        // TODO add your handling code here:
+        String seleccion = String.valueOf(jComboBox4.getSelectedItem());
+        
+        if(seleccion == "CARNIVORO"){
+          jTextField1.setEnabled(false);
+        }else{
+         jTextField1.setEnabled(true);
+        }
     }//GEN-LAST:event_jComboBox4ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
@@ -246,6 +255,8 @@ public class VistaAnimales extends javax.swing.JDialog implements IVA {
        jComboBox2.addItem(espe.getNombre());
      }
     }
+      
+
      
     public int getValorFijo(){
      return Integer.parseInt(jTextField1.getText());
@@ -266,8 +277,10 @@ public class VistaAnimales extends javax.swing.JDialog implements IVA {
       return String.valueOf(jComboBox3.getSelectedItem());
       }
       
+
       public String getAlimentacion(){
       return String.valueOf(jComboBox4.getSelectedItem());
+     
       }
       
       public String getSector(){

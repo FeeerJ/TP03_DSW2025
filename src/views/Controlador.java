@@ -112,7 +112,7 @@ public class Controlador implements ActionListener {
                     valorFijo=0;
                     Mamifero nuevo = new Carnivoro(edad, peso, especie, sector, pais);  
                     Persistencia.agregarAnimal(nuevo);
-                    System.out.println("agregaro correctamente");
+                    System.out.println("agregado correctamente");
                 
                 } catch (InvalidPropertiesFormatException ex) {
                     System.out.println("error");
