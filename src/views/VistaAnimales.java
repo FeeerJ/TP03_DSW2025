@@ -3,6 +3,8 @@ package views;
 
 
 import domain.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 
@@ -11,11 +13,23 @@ public class VistaAnimales extends javax.swing.JDialog implements IVA {
     public VistaAnimales(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        
+       
+        
+        
     }
 
-     public void setControlador(Controlador control){
+     public void setControlador(final Controlador control){
          jButton1.addActionListener(control);
          jButton1.setActionCommand(OPC_GUARDAR);
+         
+         jComboBox2.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                String especieSeleccionada = String.valueOf(jComboBox2.getSelectedItem());
+                control.actualizarEspecie(especieSeleccionada);
+                //control.actualizarEspecieSeleccionada(especieSeleccionada); // Llamada al controlador
+            }
+        });
 
      }
 
@@ -23,8 +37,10 @@ public class VistaAnimales extends javax.swing.JDialog implements IVA {
        this.setVisible(true);
        
     }
- 
     
+    
+ 
+
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -236,11 +252,14 @@ public class VistaAnimales extends javax.swing.JDialog implements IVA {
     
     public void llenarComboBoxSector(ArrayList<Sector> sectores){
       jComboBox1.removeAllItems();
-       for(Sector sector: sectores){
-          jComboBox1.addItem(String.valueOf(sector.getNumero()));
+       for(Sector sector: sectores){  
+        jComboBox1.addItem(String.valueOf(sector.getNumero()));
+           
+
         }
       
     }
+    
     
     public void llenarComboBoxPais(ArrayList<Pais> paises){
      jComboBox3.removeAllItems();
@@ -251,10 +270,14 @@ public class VistaAnimales extends javax.swing.JDialog implements IVA {
     
       public void llenarComboBoxEspecie(ArrayList<Especie> especies){
      jComboBox2.removeAllItems();
+     
      for(Especie espe: especies){
        jComboBox2.addItem(espe.getNombre());
+        
      }
+     
     }
+      
       
 
      
@@ -286,6 +309,8 @@ public class VistaAnimales extends javax.swing.JDialog implements IVA {
       public String getSector(){
       return String.valueOf(jComboBox1.getSelectedItem());
       }
+      
+      
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jComboBox1;

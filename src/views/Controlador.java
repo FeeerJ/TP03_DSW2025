@@ -16,7 +16,8 @@ public class Controlador implements ActionListener {
      IVL vl = new VistaListado(null,true);
      IVA  va = new VistaAnimales(null,true);
      IVC vc = new ListarAnimalesView();
-        private boolean controladorAsignado = false;
+     private boolean controladorAsignado = false;
+     private boolean itemSeleccionado = true;
      
     public static TipoAlimentacion[] getTiposAlimentacion(){
         return  TipoAlimentacion.values();
@@ -77,13 +78,22 @@ public class Controlador implements ActionListener {
         
         if(e.getActionCommand().equals(vp.OP_AGREGAR)){
             System.out.println("Abiendo menu...");
-            va.llenarComboBoxSector(Persistencia.getSectores());
+            
+            
             va.llenarComboBoxPais(Persistencia.getPaises());
             va.llenarComboBoxEspecie(Persistencia.getEspecies());
+            String especieSeleccionada = va.getEspecie();
+            System.out.println(especieSeleccionada);
+            actualizarEspecie(especieSeleccionada);
+           // va.llenarComboBoxSector(Persistencia.getSectores());
+            
+            
             
           if(!controladorAsignado){
            va.setControlador(this);
            controladorAsignado = true;
+           
+           
          }
             va.ejecutar(); 
         }
@@ -117,8 +127,7 @@ public class Controlador implements ActionListener {
                 } catch (InvalidPropertiesFormatException ex) {
                     System.out.println("error");
                 }
-            }
-            
+            }  
             if(tipoAlimentacion.equals("HERBIVORO")){
              try{
                Mamifero nuevo = new Herbivoro(edad,peso,especie,sector,valorFijo,pais);
@@ -126,13 +135,23 @@ public class Controlador implements ActionListener {
                  System.out.println("agregado");
              }catch(InvalidPropertiesFormatException ex){System.out.println("error");}
             }
-                
-           
-           
         }
-     
         
     }
+    
+    
+  public void actualizarEspecie(String especie){
+    
+   Especie esp= Persistencia.buscarEspeciePorNombre(especie);
+   
+   if(esp != null){
+    ArrayList<Sector> sectores = Persistencia.obtenerSectoresDisponibles(esp);
+    va.llenarComboBoxSector(sectores);
+   
+   }else{
+       System.out.println("Especie no encontrada");
+   }
+  }
     
     
   

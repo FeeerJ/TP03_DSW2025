@@ -30,6 +30,20 @@ public class Persistencia {
         sectores.add(new Sector(4, -26.257250, -65.523514, 10, TipoAlimentacion.CARNIVORO, raul));
     }
     
+    
+    // prueba//
+    public static ArrayList<Sector> obtenerSectoresDisponibles(Especie especie){
+     ArrayList<Sector> sectoresFiltrados = new ArrayList<>();
+     for(Sector sector : sectores){
+       if(sector.getTipoAlimentacion().equals(especie.getTipoAlimentacion())){
+         sectoresFiltrados.add(sector);
+       }
+     }
+    return sectoresFiltrados;
+    } 
+    
+    
+    /////
     /*
     private static void inicializarAnimales() throws InvalidPropertiesFormatException {
         
